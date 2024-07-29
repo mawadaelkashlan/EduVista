@@ -132,8 +132,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                       );
                                     },
                                     child: Container(
-                                      height: 44,
-                                      width: 44,
+                                      height: 56,
+                                      width: 56,
                                       decoration: BoxDecoration(
                                           color: Colors.grey,
                                           shape: BoxShape.circle,
@@ -173,8 +173,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 );
                               },
                               child: Container(
-                                height: 44,
-                                width: 44,
+                                height: 56,
+                                width: 56,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: ColorUtility.primaryColor,
