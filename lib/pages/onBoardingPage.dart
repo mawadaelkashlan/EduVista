@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingView extends StatefulWidget {
+  // ignore: use_super_parameters
   const OnBoardingView({Key? key}) : super(key: key);
 
   @override
@@ -56,7 +57,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             child: const Padding(
               padding: EdgeInsetsDirectional.only(end: 20),
               child: Text('Skip',
-                  style: TextStyle(color: ColorUtility.secondaryColor)),
+                  style: TextStyle(
+                      color: ColorUtility.secondaryColor, fontSize: 16)),
             ),
           ),
         ],
@@ -105,10 +107,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     SmoothPageIndicator(
                       controller: _pageController,
                       effect: const ExpandingDotsEffect(
-                        dotColor: ColorUtility.secondaryColor,
+                        dotColor: ColorUtility.black,
                         activeDotColor: ColorUtility.primaryColor,
-                        dotHeight: 7,
-                        dotWidth: 24,
+                        dotHeight: 8,
+                        dotWidth: 25,
                         expansionFactor: 2,
                         spacing: 6,
                       ),
