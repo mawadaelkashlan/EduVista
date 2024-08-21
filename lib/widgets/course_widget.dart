@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista/models/course.dart';
+import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CoursesWidget extends StatefulWidget {
   final String rankValue;
@@ -57,15 +59,42 @@ class _CoursesWidgetState extends State<CoursesWidget> {
             shrinkWrap: true,
             crossAxisCount: 2,
             children: List.generate(courses.length, (index) {
-              return Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: const Color(0xffE0E0E0),
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: Center(
-                  child: Text(courses[index].title ?? 'No Name'),
-                ),
+              return Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image(
+                      image: NetworkImage(courses[index].image!),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "${courses[index].rating!}",
+                      ),
+                      RatingBar.builder(
+                        itemSize: 20,
+                        initialRating: courses[index].rating!,
+                        glowColor: ColorUtility.main,
+                        unratedColor: ColorUtility.grayExtraLight,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                        itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: ColorUtility.main,
+                        ),
+                        onRatingUpdate: (rating) {
+                          print(rating);
+                        },
+                      ),
+                    ],
+                  ),
+                  Text(courses[index].title!)
+                ],
               );
             }),
           );
