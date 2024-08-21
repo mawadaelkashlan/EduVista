@@ -83,7 +83,6 @@ class _AuthTemplateWidgetState extends State<AuthTemplateWidget> {
                                 height: 80,
                               ),
                             ),
-                            const SizedBox(width: 10),
                             const Expanded(
                               child: Text(
                                 'Sign In with Facebook',
@@ -162,17 +161,19 @@ class _AuthTemplateWidgetState extends State<AuthTemplateWidget> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          CustomTextButton(
-                            label: 'Forgot Password ?',
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
+                      isLogin
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                CustomTextButton(
+                                  label: 'Forgot Password ?',
+                                  onPressed: () {},
+                                ),
+                              ],
+                            )
+                          : SizedBox(),
                       const SizedBox(
-                        height: 35,
+                        height: 10,
                       ),
                       Row(
                         children: [

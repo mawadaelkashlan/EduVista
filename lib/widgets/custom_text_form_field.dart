@@ -29,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             labelText,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
           ),
         ),
         TextFormField(

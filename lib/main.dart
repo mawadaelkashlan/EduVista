@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:edu_vista/cubit/auth/auth_cubit.dart';
 import 'package:edu_vista/firebase_options.dart';
+import 'package:edu_vista/pages/home/home_layout.dart';
 import 'package:edu_vista/pages/home/home_page.dart';
 import 'package:edu_vista/pages/auth/login.dart';
 import 'package:edu_vista/pages/welcome/onBoardingPage.dart';
@@ -49,6 +50,8 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         final String routeName = settings.name ?? '';
         switch (routeName) {
+          case LayoutPage.id:
+            return MaterialPageRoute(builder: (context) => const LayoutPage());
           case LoginPage.id:
             return MaterialPageRoute(builder: (context) => const LoginPage());
           case SignUpPage.id:

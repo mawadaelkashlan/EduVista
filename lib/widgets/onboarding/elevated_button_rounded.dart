@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class ElevatedButtonRounded extends StatelessWidget {
   void Function()? onPressed;
-  MaterialStateProperty<Color?>? backgroundColor;
+  Color backgroundColor;
   Widget? icon;
 
   ElevatedButtonRounded(
@@ -16,16 +16,13 @@ class ElevatedButtonRounded extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all(const Size(65, 65)),
-        foregroundColor: MaterialStateProperty.all<Color>(
-          Colors.white,
-        ),
-        padding: MaterialStateProperty.all<EdgeInsets>(
-          EdgeInsets.all(15),
-        ),
-        shape: MaterialStateProperty.all<CircleBorder>(CircleBorder()),
+      style: ElevatedButton.styleFrom(
+        side: BorderSide.none,
+        minimumSize: Size(60, 60),
         backgroundColor: backgroundColor,
+        foregroundColor: Colors.white,
+        shape: CircleBorder(), 
+        padding: EdgeInsets.all(10),
       ),
       onPressed: onPressed,
       child: icon,

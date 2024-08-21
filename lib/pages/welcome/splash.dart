@@ -1,7 +1,9 @@
 import 'package:edu_vista/pages/auth/login.dart';
+import 'package:edu_vista/pages/home/home_layout.dart';
 import 'package:edu_vista/pages/welcome/onBoardingPage.dart';
 import 'package:edu_vista/services/pref_service.dart';
 import 'package:edu_vista/utils/image_utility.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -40,7 +42,11 @@ class _SplashPageState extends State<SplashPage> {
     await Future.delayed(const Duration(seconds: 1));
     if (mounted) {
       if (PreferencesService.isOnBoardingSeen) {
-        Navigator.pushReplacementNamed(context, LoginPage.id);
+        if (FirebaseAuth.instance.currentUser != null) {
+          Navigator.pushReplacementNamed(context, LayoutPage.id);
+        } else {
+          Navigator.pushReplacementNamed(context, LoginPage.id);
+        }
       } else {
         Navigator.pushReplacementNamed(context, OnBoardingPage.id);
       }

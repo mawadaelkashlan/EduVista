@@ -8,7 +8,6 @@ import 'package:edu_vista/widgets/onboarding/onboard_indicator.dart';
 import 'package:edu_vista/widgets/onboarding/onboard_item_widget.dart';
 import 'package:flutter/material.dart';
 
-
 class OnBoardingPage extends StatefulWidget {
   static const String id = 'OnBoardingPage';
 
@@ -78,7 +77,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 10,
             ),
             Expanded(
               flex: 3,
@@ -112,46 +111,47 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ),
             ),
             Expanded(
+                flex: 1,
                 child: Column(
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    OnBoardIndicator(
-                      positionIndex: 0,
-                      currentIndex: currentIndex,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        OnBoardIndicator(
+                          positionIndex: 0,
+                          currentIndex: currentIndex,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        OnBoardIndicator(
+                          positionIndex: 1,
+                          currentIndex: currentIndex,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        OnBoardIndicator(
+                          positionIndex: 2,
+                          currentIndex: currentIndex,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        OnBoardIndicator(
+                          positionIndex: 3,
+                          currentIndex: currentIndex,
+                        ),
+                      ],
                     ),
                     const SizedBox(
-                      width: 10,
+                      height: 40,
                     ),
-                    OnBoardIndicator(
-                      positionIndex: 1,
-                      currentIndex: currentIndex,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    OnBoardIndicator(
-                      positionIndex: 2,
-                      currentIndex: currentIndex,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    OnBoardIndicator(
-                      positionIndex: 3,
-                      currentIndex: currentIndex,
-                    ),
+                    getButtons
                   ],
-                ),
-                const SizedBox(
-                  height: 80,
-                ),
-                getButtons
-              ],
-            )),
+                )),
           ],
         ),
       ),
@@ -161,7 +161,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget get getButtons => currentIndex == 3
       ? CustomElevatedButton(onPressed: () => onLogin(), text: 'Login')
       : Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -175,9 +175,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         Icons.arrow_back,
                         size: 30,
                       ),
-                      backgroundColor: WidgetStateProperty.all<Color>(
-                        ColorUtility.grayLight,
-                      ),
+                      backgroundColor: ColorUtility.grayLight,
                     ),
               currentIndex == 3
                   ? const SizedBox.shrink()
@@ -189,9 +187,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         Icons.arrow_forward,
                         size: 30,
                       ),
-                      backgroundColor: WidgetStateProperty.all<Color>(
-                        ColorUtility.deepYellow,
-                      ),
+                      backgroundColor: ColorUtility.deepYellow,
                     ),
             ],
           ),
