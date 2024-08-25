@@ -20,7 +20,7 @@ class Course {
     id = data['id'];
     title = data['title'];
     image = data['image'];
-    category =
+    category = 
         data['category'] != null ? Category.fromJson(data['category']) : null;
     currency = data['currency'];
     rank = data['rank'];

@@ -1,0 +1,1 @@
+enum CourseOptions { Lectures, Download, Certificate, More }

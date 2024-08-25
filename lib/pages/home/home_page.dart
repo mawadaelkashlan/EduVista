@@ -1,6 +1,6 @@
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/widgets/categories_widget.dart';
-import 'package:edu_vista/widgets/course_widget.dart';
+import 'package:edu_vista/widgets/courses_widget.dart';
 import 'package:edu_vista/widgets/label_widget.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,34 +26,36 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              LabelWidget(
-                name: 'Categories',
-                onSeeAllClicked: () {},
-              ),
-              CategoriesWidget(),
-              const SizedBox(
-                height: 20,
-              ),
-              LabelWidget(
-                name: 'Top Rated Courses',
-                onSeeAllClicked: () {},
-              ),
-              const CoursesWidget(
-                rankValue: 'top rated',
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              LabelWidget(
-                name: 'Top Seller Courses',
-                onSeeAllClicked: () {},
-              ),
-              const CoursesWidget(
-                rankValue: 'top seller',
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                LabelWidget(
+                  name: 'Categories',
+                  onSeeAllClicked: () {},
+                ),
+                const CategoriesWidget(),
+                const SizedBox(
+                  height: 20,
+                ),
+                LabelWidget(
+                  name: 'Top Rated Courses',
+                  onSeeAllClicked: () {},
+                ),
+                CoursesWidget(
+                  rankValue: 'top rated',
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                LabelWidget(
+                  name: 'Top Seller Courses',
+                  onSeeAllClicked: () {},
+                ),
+                CoursesWidget(
+                  rankValue: 'top seller',
+                ),
+              ],
+            ),
           ),
         ),
       ),

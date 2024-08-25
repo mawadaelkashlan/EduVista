@@ -1,6 +1,8 @@
 import 'dart:ui';
+import 'package:edu_vista/blocs/course/course_bloc.dart';
 import 'package:edu_vista/cubit/auth/auth_cubit.dart';
 import 'package:edu_vista/firebase_options.dart';
+import 'package:edu_vista/pages/home/course_detail_page.dart';
 import 'package:edu_vista/pages/home/home_layout.dart';
 import 'package:edu_vista/pages/home/home_page.dart';
 import 'package:edu_vista/pages/auth/login.dart';
@@ -29,8 +31,12 @@ void main() async {
   }
 
   runApp(MultiBlocProvider(
-      providers: [BlocProvider(create: (ctx) => AuthCubit())],
-      child: const MyApp()));
+    providers: [
+      BlocProvider(create: (ctx) => AuthCubit()),
+      BlocProvider(create: (ctx) => CourseBloc()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -40,7 +46,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scrollBehavior: _CustomScrollBehaviour(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         scaffoldBackgroundColor: ColorUtility.gbScaffold,
         fontFamily: ' PlusJakartaSans',
@@ -49,6 +54,7 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: (settings) {
         final String routeName = settings.name ?? '';
+        final dynamic data = settings.arguments;
         switch (routeName) {
           case LayoutPage.id:
             return MaterialPageRoute(builder: (context) => const LayoutPage());
@@ -64,6 +70,11 @@ class MyApp extends StatelessWidget {
                 builder: (context) => const OnBoardingPage());
           case HomePage.id:
             return MaterialPageRoute(builder: (context) => const HomePage());
+          case CourseDetailsPage.id:
+            return MaterialPageRoute(
+                builder: (context) => CourseDetailsPage(
+                      course: data,
+                    ));
           default:
             return MaterialPageRoute(builder: (context) => const SplashPage());
         }
