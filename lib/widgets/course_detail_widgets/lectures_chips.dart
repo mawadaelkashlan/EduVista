@@ -79,7 +79,7 @@ class _ChipWidget extends StatelessWidget {
       side: BorderSide.none,
       shape: const StadiumBorder(),
       backgroundColor:
-          isSelected ? ColorUtility.deepYellow : ColorUtility.grayLight,
+          isSelected ? ColorUtility.deepYellow : ColorUtility.grayExtraLight,
       label: Text(
         label,
         style: TextStyle(

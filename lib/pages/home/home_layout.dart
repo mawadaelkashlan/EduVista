@@ -1,4 +1,6 @@
 import 'package:edu_vista/pages/home/home_page.dart';
+import 'package:edu_vista/pages/home/my_courses.dart';
+import 'package:edu_vista/pages/profile/profile_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +24,10 @@ class _LayoutPageState extends State<LayoutPage> {
 
   List<Widget> screens = [
     const HomePage(),
+    const MyCourses(),
     const HomePage(),
     const HomePage(),
-    const HomePage(),
-    const HomePage(),
+    const ProfilePage()
   ];
 
   @override

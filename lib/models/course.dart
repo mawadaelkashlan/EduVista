@@ -20,7 +20,7 @@ class Course {
     id = data['id'];
     title = data['title'];
     image = data['image'];
-    category = 
+    category =
         data['category'] != null ? Category.fromJson(data['category']) : null;
     currency = data['currency'];
     rank = data['rank'];
@@ -38,5 +38,21 @@ class Course {
     created_date = data['created_date'] != null
         ? (data['created_date'] as Timestamp).toDate()
         : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['image'] = image;
+    data['category'] = category?.toJson();
+    data['currency'] = currency;
+    data['rank'] = rank;
+    data['has_certificate'] = has_certificate;
+    data['instructor'] = instructor?.toJson();
+    data['price'] = price;
+    data['rating'] = rating;
+    data['total_hours'] = total_hours;
+    return data;
   }
 }

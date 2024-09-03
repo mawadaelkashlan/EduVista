@@ -20,11 +20,18 @@ dependencies:
   cloud_firestore: ^5.2.1
   flutter_svg: ^2.0.10+1
   flutter_rating_bar: ^4.0.1
+  firebase_storage: ^12.1.3
+  file_picker: ^5.5.0
+  responsive_framework: ^1.5.1
+  paymob_payment: ^0.0.1+1
+  flutter_dotenv: ^5.1.0
   video_box:
     git:
-      url: https://github.com/mahmoudelgharabawi/flutter_video_box.git
-  firebase_storage: ^11.2.0
-  file_picker: ^5.2.0
+      url: https://github.com/mahmoudelgharabawi/flutter_video_box.git  
+ 
+dependency_overrides:
+  webview_flutter_android: ^3.16.1
+  
 
 dev_dependencies:
   flutter_test:

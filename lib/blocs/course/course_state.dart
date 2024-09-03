@@ -10,4 +10,3 @@ class CourseOptionStateChanges extends CourseState {
 
   CourseOptionStateChanges(this.courseOption);
 }
-

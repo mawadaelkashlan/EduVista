@@ -9,6 +9,7 @@ class ColorUtility {
   static const mediumlBlack = Color(0xff1D1B20);
   static const gbScaffold = Color(0xffFCFCFC);
   static const courseName = Color(0xff060302); 
-  static const certificateWord = Color(0xff545454);
-  static const certificateBlue = Color(0xff202244);
+  static const darkGrey = Color(0xff545454);
+  static const blueBlack = Color(0xff202244);
+  static const darkRed = Color(0xffEA4335);
 }

@@ -13,4 +13,6 @@ class ImageUtility {
   static const String instructor = '${path}instructor.svg';
   static const String download = '${path}download.svg';
   static const String play = '${path}play.svg';
+  static const String profile = '${path}profile.svg';
+  static const String camera = '${path}camera.svg';
 }
