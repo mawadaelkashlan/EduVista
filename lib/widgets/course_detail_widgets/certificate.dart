@@ -1,50 +1,51 @@
 
-  import 'package:edu_vista/utils/color_utilis.dart';
+  import 'package:edu_vista/services/user_service.dart';
+import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 
 void showCertificate(BuildContext context) {
     Future.delayed(Duration.zero, () {
       showDialog(
         context: context,
-        builder: (context) => const AlertDialog(
+        builder: (context) => AlertDialog(
           content: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Certificate of Completion',
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'This Certifies that',
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: ColorUtility.darkGrey),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  'Muhammad Rafey',
-                  style: TextStyle(
+                  UserService.getCurrentUser()!.displayName ?? 'please login',
+                  style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: ColorUtility.main),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Has Successfully Completed the Wallace Training Program, Entitled.',
                   style: TextStyle(
                       fontSize: 12,
@@ -52,70 +53,70 @@ void showCertificate(BuildContext context) {
                       color: ColorUtility.darkGrey),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Flutter course',
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Issued on November 24, 2022',
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: ColorUtility.darkGrey),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'ID: SK24568086',
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Calvin E. McGinnis',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
                       color: ColorUtility.main),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Virginia M. Patterson',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
                       color: ColorUtility.deepYellow),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Virginia M. Patterson',
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: ColorUtility.blueBlack),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Issued on November 24, 2022',
                   style: TextStyle(
                       fontSize: 12,

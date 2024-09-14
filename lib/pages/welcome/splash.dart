@@ -5,6 +5,7 @@ import 'package:edu_vista/services/pref_service.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashPage extends StatefulWidget {
   static String id = 'SplashPage';
@@ -25,15 +26,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              ImageUtility.logo,
-            ),
-            const CircularProgressIndicator()
-          ],
-        ),
+        child: SizedBox(width: 250, child: SvgPicture.asset(ImageUtility.logo)),
       ),
     );
   }

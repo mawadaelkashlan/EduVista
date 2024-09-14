@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 
 class ExpandableContainer extends StatefulWidget {
   final String title;
-  final String content;
+  final String? content;
+  final Widget? contentWidget;
 
   const ExpandableContainer({
     super.key,
     required this.title,
-    required this.content,
+    this.content,
+    this.contentWidget,
   });
+
   @override
   _ExpandableContainerState createState() => _ExpandableContainerState();
 }
@@ -27,10 +30,18 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
       },
       child: Container(
         width: double.infinity,
-        // height: _isExpanded ? 250 : 60,
         decoration: BoxDecoration(
-          color: ColorUtility.grayExtraLight,
+          color: _isExpanded ? Colors.white : ColorUtility.grayExtraLight,
           borderRadius: BorderRadius.circular(6),
+          border: _isExpanded
+              ? Border.all(
+                  color: ColorUtility
+                      .deepYellow, 
+                  width: 2.0, 
+                )
+              : Border.all(
+                  color: Colors.transparent, 
+                ),
         ),
         child: Theme(
           data: Theme.of(context).copyWith(
@@ -41,7 +52,7 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
             trailing: _isExpanded
                 ? const Icon(
                     Icons.keyboard_double_arrow_down,
-                    color: Colors.black,
+                    color: ColorUtility.deepYellow,
                   )
                 : const Icon(
                     Icons.keyboard_double_arrow_right,
@@ -49,10 +60,11 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
                   ),
             title: Text(
               widget.title,
-              style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500),
+              style: TextStyle(
+                fontSize: 16,
+                color: _isExpanded ? ColorUtility.deepYellow : Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             onExpansionChanged: (bool expanded) {
               setState(() {
@@ -60,16 +72,20 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
               });
             },
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
-                  widget.content,
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500),
-                ),
-              )
+              widget.contentWidget ?? const SizedBox.shrink(),
+              widget.contentWidget == null
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        widget.content ?? '',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

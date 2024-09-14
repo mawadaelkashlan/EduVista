@@ -1,11 +1,12 @@
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 
+
 // ignore: must_be_immutable
 class CustomElevatedButton extends StatelessWidget {
   void Function() onPressed;
-  // String label;
   double? width;
+  double? height;
   Color? backgroundColor;
   Color? foregroundColor;
   Widget? child;
@@ -14,6 +15,7 @@ class CustomElevatedButton extends StatelessWidget {
   CustomElevatedButton(
       {required this.onPressed,
       this.width,
+      this.height,
       this.backgroundColor,
       this.foregroundColor,
       this.child,
@@ -28,7 +30,7 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: 52,
+      height: height ?? 45,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(

@@ -3,6 +3,8 @@ import 'package:edu_vista/models/course.dart';
 import 'package:edu_vista/pages/home/course_detail_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
+import 'package:edu_vista/widgets/Custom_text_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -60,7 +62,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
             []);
 
         return SizedBox(
-          height: 210,
+          height: 230,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
@@ -111,6 +113,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                             direction: Axis.horizontal,
                             allowHalfRating: true,
                             itemCount: 5,
+                            ignoreGestures: true,
                             itemPadding:
                                 const EdgeInsets.symmetric(horizontal: 1.0),
                             itemBuilder: (context, _) => const Icon(
@@ -144,6 +147,17 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                               color: ColorUtility.main,
                               fontSize: 14,
                               fontWeight: FontWeight.w800)),
+                      CustomTextButton(
+                        label: 'Add To Cart',
+                        onPressed: () {
+                          addToCart(
+                            courses[index].id!,
+                            courses[index].title!,
+                            courses[index].price!,
+                            courses[index].image!,
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -153,5 +167,24 @@ class _CoursesWidgetState extends State<CoursesWidget> {
         );
       },
     );
+  }
+
+  Future<void> addToCart(String courseId, String courseName, double coursePrice,
+      String courseImage) async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      await FirebaseFirestore.instance
+          .collection('carts')
+          .doc(user.uid)
+          .collection('cartItems')
+          .doc(courseId)
+          .set({
+        'courseName': courseName,
+        'coursePrice': coursePrice,
+        'courseImage': courseImage,
+        'addedAt': FieldValue.serverTimestamp(),
+      });
+    }
   }
 }

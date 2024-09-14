@@ -1,4 +1,5 @@
 import 'package:edu_vista/pages/auth/login.dart';
+import 'package:edu_vista/pages/auth/reset_pass.dart';
 import 'package:edu_vista/pages/auth/sign_up.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/widgets/Custom_text_button.dart';
@@ -167,11 +168,14 @@ class _AuthTemplateWidgetState extends State<AuthTemplateWidget> {
                               children: [
                                 CustomTextButton(
                                   label: 'Forgot Password ?',
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, ResetPasswordPage.id);
+                                  },
                                 ),
                               ],
                             )
-                          : SizedBox(),
+                          : const SizedBox(),
                       const SizedBox(
                         height: 10,
                       ),

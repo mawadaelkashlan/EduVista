@@ -1,12 +1,12 @@
-
 import 'dart:ui';
-
 import 'package:edu_vista/pages/auth/login.dart';
 import 'package:edu_vista/pages/auth/reset_pass.dart';
 import 'package:edu_vista/pages/auth/sign_up.dart';
+import 'package:edu_vista/pages/categories/categories_page.dart';
 import 'package:edu_vista/pages/home/course_detail_page.dart';
 import 'package:edu_vista/pages/home/home_layout.dart';
 import 'package:edu_vista/pages/home/home_page.dart';
+import 'package:edu_vista/pages/shopping_cart/cart_page.dart';
 import 'package:edu_vista/pages/welcome/onBoardingPage.dart';
 import 'package:edu_vista/pages/welcome/splash.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
@@ -20,7 +20,6 @@ class EduVista extends StatelessWidget {
       scrollBehavior: _CustomScrollBehaviour(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        
         scaffoldBackgroundColor: ColorUtility.gbScaffold,
         fontFamily: ' PlusJakartaSans',
         colorScheme: ColorScheme.fromSeed(seedColor: ColorUtility.main),
@@ -49,6 +48,12 @@ class EduVista extends StatelessWidget {
                 builder: (context) => CourseDetailsPage(
                       course: data,
                     ));
+          case CategoriesPage.id:
+            return MaterialPageRoute(
+                builder: (context) => const CategoriesPage());
+          case ShoppingCart.id:
+            return MaterialPageRoute(
+                builder: (context) => const ShoppingCart());
           default:
             return MaterialPageRoute(builder: (context) => const SplashPage());
         }

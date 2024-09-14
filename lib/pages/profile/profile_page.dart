@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:edu_vista/pages/auth/login.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/widgets/arrowed_container.dart';
+import 'package:edu_vista/widgets/default_appbar.dart';
 import 'package:edu_vista/widgets/profile/profile_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,26 +14,34 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
-
 class _ProfilePageState extends State<ProfilePage> {
   User? currentUser;
+  late final StreamSubscription<User?> _authSubscription;
 
   @override
   void initState() {
     super.initState();
-    FirebaseAuth.instance.authStateChanges().listen((user) {
-      setState(() {
-        currentUser = user;
-      });
+
+    _authSubscription = FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (mounted) { 
+        setState(() {
+          currentUser = user;
+        });
+      }
     });
   }
+
+  @override
+  void dispose() {
+    _authSubscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorUtility.gbScaffold,
-        title: const Text('Profile'),
-        centerTitle: true,
+      appBar: DefaultAppbar(
+        title: 'Profile',
         actions: [
           IconButton(
               onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined))
@@ -45,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Center(
             child: ProfileImage(
-              downloadUrl: currentUser?.photoURL, 
+              downloadUrl: currentUser?.photoURL,
             ),
           ),
           const SizedBox(
@@ -98,6 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 } catch (e) {
                   print('Logout error: $e');
                 }
+                
               },
               child: const Text(
                 'Logout',

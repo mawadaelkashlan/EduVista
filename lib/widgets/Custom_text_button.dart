@@ -16,7 +16,7 @@ class CustomTextButton extends StatelessWidget {
           child: Text(
             label,
             style:
-                const TextStyle(color: ColorUtility.deepYellow, fontSize: 15),
+                const TextStyle(color: ColorUtility.deepYellow, fontSize: 12),
           ),
         ));
   }

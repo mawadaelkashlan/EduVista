@@ -1,3 +1,5 @@
+import 'package:edu_vista/pages/categories/categories_page.dart';
+import 'package:edu_vista/pages/shopping_cart/cart_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/widgets/categories_widget.dart';
 import 'package:edu_vista/widgets/courses_widget.dart';
@@ -22,6 +24,12 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: ColorUtility.gbScaffold,
         title: Text(
             'Welcome Back! ${FirebaseAuth.instance.currentUser?.displayName}'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ShoppingCart.id);
+              }, icon: const Icon(Icons.shopping_cart_outlined))
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -33,7 +41,9 @@ class _HomePageState extends State<HomePage> {
               children: [
                 LabelWidget(
                   name: 'Categories',
-                  onSeeAllClicked: () {},
+                  onSeeAllClicked: () {
+                    Navigator.pushNamed(context, CategoriesPage.id);
+                  },
                 ),
                 const CategoriesWidget(),
                 const SizedBox(
@@ -43,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                   name: 'Top Rated Courses',
                   onSeeAllClicked: () {},
                 ),
-                CoursesWidget(
+                const CoursesWidget(
                   rankValue: 'top rated',
                 ),
                 const SizedBox(
@@ -53,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                   name: 'Top Seller Courses',
                   onSeeAllClicked: () {},
                 ),
-                CoursesWidget(
+                const CoursesWidget(
                   rankValue: 'top seller',
                 ),
               ],
