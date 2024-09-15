@@ -1,14 +1,14 @@
-// import 'package:edu_vista/widgets/video_box_widget.dart';
+import 'package:edu_vista/features/home/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:edu_vista/blocs/course/course_bloc.dart';
-import 'package:edu_vista/blocs/lecture/lecture_bloc.dart';
+import 'package:edu_vista/features/home/blocs/course/course_bloc.dart';
+import 'package:edu_vista/features/home/blocs/lecture/lecture_bloc.dart';
 import 'package:edu_vista/models/course.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/lectures_chips.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/course_options.dart';
+import 'package:edu_vista/features/home/widgets/lectures_chips.dart';
+import 'package:edu_vista/features/home/widgets/course_options.dart';
 
 class CourseDetailsPage extends StatefulWidget {
   final Course course;
@@ -31,42 +31,41 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Video part at the top
-            //             BlocBuilder<LectureBloc, LectureState>(builder: (ctx, state) {
-            //   var stateEx = state is LectureChosenState ? state : null;
+      body: Column(
+        children: [
+          // Video part at the top
+          BlocBuilder<LectureBloc, LectureState>(builder: (ctx, state) {
+            var stateEx = state is LectureChosenState ? state : null;
 
-            //   if (stateEx == null) {
-            //     return const SizedBox.shrink();
-            //   }
+            if (stateEx == null) {
+              return const SizedBox.shrink();
+            }
 
-            //   return Container(
-            //     height: 250,
-            //     child: stateEx.lecture.lecture_url == null ||
-            //             stateEx.lecture.lecture_url == ''
-            //         ? const Center(
-            //             child: Text(
-            //             'Invalid Url',
-            //             style: TextStyle(
-            //                 color: Colors.black,
-            //                 fontSize: 20,
-            //                 fontWeight: FontWeight.bold),
-            //           ))
-            //         : VideoBoxWidget(
-            //             url: stateEx.lecture.lecture_url ?? '',
-            //             // url: stateEx.lecture.lecture_url ?? '',
-            //           ),
-            //   );
-            // }),
-            Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 40),
+            return Container(
+              height: 250,
+              child: stateEx.lecture.lecture_url == null ||
+                      stateEx.lecture.lecture_url == ''
+                  ? const Center(
+                      child: Text(
+                      'Invalid Url',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ))
+                  : VideoPlayerWidget(
+                      url: stateEx.lecture.lecture_url!,
+                    ),
+            );
+          }),
+          Expanded(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              color: Colors.white,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -94,8 +93,8 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

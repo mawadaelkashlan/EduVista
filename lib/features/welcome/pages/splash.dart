@@ -1,6 +1,6 @@
-import 'package:edu_vista/pages/auth/login.dart';
-import 'package:edu_vista/pages/home/home_layout.dart';
-import 'package:edu_vista/pages/welcome/onBoardingPage.dart';
+import 'package:edu_vista/features/auth/pages/login.dart';
+import 'package:edu_vista/features/home/pages/home_layout.dart';
+import 'package:edu_vista/features/welcome/pages/onBoardingPage.dart';
 import 'package:edu_vista/services/pref_service.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';

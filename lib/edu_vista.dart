@@ -1,14 +1,14 @@
 import 'dart:ui';
-import 'package:edu_vista/pages/auth/login.dart';
-import 'package:edu_vista/pages/auth/reset_pass.dart';
-import 'package:edu_vista/pages/auth/sign_up.dart';
-import 'package:edu_vista/pages/categories/categories_page.dart';
-import 'package:edu_vista/pages/home/course_detail_page.dart';
-import 'package:edu_vista/pages/home/home_layout.dart';
-import 'package:edu_vista/pages/home/home_page.dart';
-import 'package:edu_vista/pages/shopping_cart/cart_page.dart';
-import 'package:edu_vista/pages/welcome/onBoardingPage.dart';
-import 'package:edu_vista/pages/welcome/splash.dart';
+import 'package:edu_vista/features/auth/pages/login.dart';
+import 'package:edu_vista/features/auth/pages/reset_pass.dart';
+import 'package:edu_vista/features/auth/pages/sign_up.dart';
+import 'package:edu_vista/features/categories/categories_page.dart';
+import 'package:edu_vista/features/home/pages/course_detail_page.dart';
+import 'package:edu_vista/features/home/pages/home_layout.dart';
+import 'package:edu_vista/features/home/pages/home_page.dart';
+import 'package:edu_vista/features/shopping_cart/cart_page.dart';
+import 'package:edu_vista/features/welcome/pages/onBoardingPage.dart';
+import 'package:edu_vista/features/welcome/pages/splash.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:edu_vista/pages/categories/categories_page.dart';
-import 'package:edu_vista/pages/shopping_cart/cart_page.dart';
+import 'package:edu_vista/features/categories/categories_page.dart';
+import 'package:edu_vista/features/shopping_cart/cart_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/widgets/categories_widget.dart';
 import 'package:edu_vista/widgets/courses_widget.dart';

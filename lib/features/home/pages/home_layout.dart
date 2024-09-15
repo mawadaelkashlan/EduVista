@@ -1,6 +1,7 @@
-import 'package:edu_vista/pages/home/home_page.dart';
-import 'package:edu_vista/pages/home/my_courses.dart';
-import 'package:edu_vista/pages/profile/profile_page.dart';
+import 'package:edu_vista/features/home/pages/home_page.dart';
+import 'package:edu_vista/features/home/pages/my_courses.dart';
+import 'package:edu_vista/features/home/pages/search.dart';
+import 'package:edu_vista/features/profile/pages/profile_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:flutter/material.dart';
@@ -25,15 +26,14 @@ class _LayoutPageState extends State<LayoutPage> {
   List<Widget> screens = [
     const HomePage(),
     const MyCourses(),
-    const HomePage(),
-    const HomePage(),
+    const SearchPage(),
     const ProfilePage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: TabBarView(children: screens),
@@ -58,7 +58,6 @@ class _LayoutPageState extends State<LayoutPage> {
             _buildTab(ImageUtility.home, 0),
             _buildTab(ImageUtility.book, 1),
             _buildTab(ImageUtility.search, 2),
-            _buildTab(ImageUtility.message, 3),
             _buildTab(ImageUtility.person, 4),
           ],
         ),

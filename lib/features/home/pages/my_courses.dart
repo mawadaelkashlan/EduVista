@@ -1,4 +1,6 @@
+import 'package:edu_vista/features/shopping_cart/cart_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
+import 'package:edu_vista/widgets/courses_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyCourses extends StatelessWidget {
@@ -9,12 +11,18 @@ class MyCourses extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorUtility.gbScaffold,
-        title: const Text('Courses'),
+        title: const Text('All Courses'),
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined))
+              onPressed: () {
+                Navigator.pushNamed(context, ShoppingCart.id);
+              },
+              icon: const Icon(Icons.shopping_cart_outlined))
         ],
+      ),
+      body: const CoursesWidget(
+        rankValue: 'top rated',
       ),
     );
   }

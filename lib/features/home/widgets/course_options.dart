@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista/blocs/course/course_bloc.dart';
+import 'package:edu_vista/features/home/blocs/course/course_bloc.dart';
 import 'package:edu_vista/models/course.dart';
 import 'package:edu_vista/models/lecture.dart';
 import 'package:edu_vista/utils/app_enums.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/certificate.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/downloaded_lectures_widget.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/more_option_widget.dart';
+import 'package:edu_vista/features/home/widgets/certificate.dart';
+import 'package:edu_vista/features/home/widgets/downloaded_lectures_widget.dart';
+import 'package:edu_vista/features/home/widgets/more_option_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

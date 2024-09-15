@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:edu_vista/cubit/auth/auth_state.dart';
-import 'package:edu_vista/pages/home/home_layout.dart';
+import 'package:edu_vista/features/auth/cubit/auth/auth_state.dart';
+import 'package:edu_vista/features/home/pages/home_layout.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

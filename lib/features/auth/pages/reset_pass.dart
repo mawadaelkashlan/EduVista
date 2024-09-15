@@ -1,4 +1,4 @@
-import 'package:edu_vista/pages/auth/login.dart';
+import 'package:edu_vista/features/auth/pages/login.dart';
 import 'package:edu_vista/widgets/custom_elevated_button.dart';
 import 'package:edu_vista/widgets/custom_text_form_field.dart';
 import 'package:edu_vista/widgets/default_appbar.dart';

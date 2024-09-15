@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista/models/course.dart';
-import 'package:edu_vista/pages/home/course_detail_page.dart';
+import 'package:edu_vista/features/home/pages/course_detail_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:edu_vista/widgets/Custom_text_button.dart';
@@ -78,6 +78,8 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                 onTap: () {
                   Navigator.pushNamed(context, CourseDetailsPage.id,
                       arguments: courses[index]);
+                  storeWatchedCourse(
+                      courses[index].id!, courses[index].category!.name!);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -167,6 +169,23 @@ class _CoursesWidgetState extends State<CoursesWidget> {
         );
       },
     );
+  }
+
+  Future<void> storeWatchedCourse(String courseId, String category) async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      await FirebaseFirestore.instance
+          .collection('watchedCourses')
+          .doc(user.uid)
+          .collection('courses')
+          .doc(courseId)
+          .set({
+        'courseId': courseId,
+        'category': category,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+    }
   }
 
   Future<void> addToCart(String courseId, String courseName, double coursePrice,

@@ -1,7 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/course_options.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/expandal_container.dart';
+import 'package:edu_vista/features/home/widgets/course_options.dart';
+import 'package:edu_vista/features/home/widgets/expandal_container.dart';
 import 'package:flutter/material.dart';
 
 class MoreOptionWidget extends StatelessWidget {

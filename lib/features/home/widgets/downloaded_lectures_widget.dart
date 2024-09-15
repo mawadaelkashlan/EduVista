@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista/models/lecture.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/course_options.dart';
+import 'package:edu_vista/features/home/widgets/course_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

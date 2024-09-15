@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
-import 'package:edu_vista/widgets/course_detail_widgets/expandal_container.dart';
+import 'package:edu_vista/features/home/widgets/expandal_container.dart';
 import 'package:edu_vista/widgets/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';

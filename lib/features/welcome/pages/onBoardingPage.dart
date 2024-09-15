@@ -1,11 +1,11 @@
-import 'package:edu_vista/pages/auth/login.dart';
+import 'package:edu_vista/features/auth/pages/login.dart';
 import 'package:edu_vista/services/pref_service.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:edu_vista/widgets/custom_elevated_button.dart';
-import 'package:edu_vista/widgets/onboarding/elevated_button_rounded.dart';
-import 'package:edu_vista/widgets/onboarding/onboard_indicator.dart';
-import 'package:edu_vista/widgets/onboarding/onboard_item_widget.dart';
+import 'package:edu_vista/features/welcome/widgets/elevated_button_rounded.dart';
+import 'package:edu_vista/features/welcome/widgets/onboard_indicator.dart';
+import 'package:edu_vista/features/welcome/widgets/onboard_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatefulWidget {

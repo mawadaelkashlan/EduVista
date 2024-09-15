@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:edu_vista/pages/auth/login.dart';
+import 'package:edu_vista/features/auth/pages/login.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
-import 'package:edu_vista/widgets/arrowed_container.dart';
+import 'package:edu_vista/features/home/widgets/arrowed_container.dart';
 import 'package:edu_vista/widgets/default_appbar.dart';
-import 'package:edu_vista/widgets/profile/profile_image.dart';
+import 'package:edu_vista/features/profile/widgets/profile_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,6 @@
-import 'package:edu_vista/blocs/course/course_bloc.dart';
-import 'package:edu_vista/blocs/lecture/lecture_bloc.dart';
-import 'package:edu_vista/cubit/auth/auth_cubit.dart';
+import 'package:edu_vista/features/home/blocs/course/course_bloc.dart';
+import 'package:edu_vista/features/home/blocs/lecture/lecture_bloc.dart';
+import 'package:edu_vista/features/auth/cubit/auth/auth_cubit.dart';
 import 'package:edu_vista/edu_vista.dart';
 import 'package:edu_vista/firebase_options.dart';
 import 'package:edu_vista/services/pref_service.dart';
