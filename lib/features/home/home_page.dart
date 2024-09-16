@@ -28,7 +28,8 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, ShoppingCart.id);
-              }, icon: const Icon(Icons.shopping_cart_outlined))
+              },
+              icon: const Icon(Icons.shopping_cart_outlined))
         ],
       ),
       body: SafeArea(
@@ -55,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const CoursesWidget(
                   rankValue: 'top rated',
+               
                 ),
                 const SizedBox(
                   height: 20,
@@ -65,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const CoursesWidget(
                   rankValue: 'top seller',
+                  
                 ),
               ],
             ),

@@ -1,16 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista/models/course.dart';
 import 'package:edu_vista/features/home/pages/course_detail_page.dart';
+import 'package:edu_vista/models/course.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:edu_vista/widgets/Custom_text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CoursesWidget extends StatefulWidget {
   final String rankValue;
+
   const CoursesWidget({
     required this.rankValue,
     super.key,
@@ -65,7 +66,6 @@ class _CoursesWidgetState extends State<CoursesWidget> {
           height: 230,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
             itemCount: courses.length,
             itemBuilder: (BuildContext context, int index) {
               if (courses[index].image == null ||

@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
                   onSeeAllClicked: () {},
                 ),
                 const CoursesWidget(
+                
                   rankValue: 'top rated',
                 ),
                 const SizedBox(
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                   onSeeAllClicked: () {},
                 ),
                 const CoursesWidget(
-                  rankValue: 'top seller',
+                  rankValue: 'top seller', 
                 ),
               ],
             ),

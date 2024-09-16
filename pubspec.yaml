@@ -23,7 +23,6 @@ dependencies:
   firebase_storage: ^12.1.3
   file_picker: ^5.5.0
   image_cropper: ^8.0.2
-  responsive_framework: ^1.5.1
   paymob_payment: ^0.0.1+1
   flutter_dotenv: ^5.1.0
   video_box:

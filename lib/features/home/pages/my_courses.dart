@@ -1,6 +1,6 @@
+import 'package:edu_vista/features/home/pages/get_all_courses.dart';
 import 'package:edu_vista/features/shopping_cart/cart_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
-import 'package:edu_vista/widgets/courses_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyCourses extends StatelessWidget {
@@ -21,8 +21,9 @@ class MyCourses extends StatelessWidget {
               icon: const Icon(Icons.shopping_cart_outlined))
         ],
       ),
-      body: const CoursesWidget(
-        rankValue: 'top rated',
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        child: AllCoursesWidget(),
       ),
     );
   }
