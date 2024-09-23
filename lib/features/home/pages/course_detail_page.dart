@@ -31,37 +31,45 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
           // Video part at the top
           BlocBuilder<LectureBloc, LectureState>(builder: (ctx, state) {
             var stateEx = state is LectureChosenState ? state : null;
-
             if (stateEx == null) {
               return const SizedBox.shrink();
             }
-
-            return Container(
-              height: 250,
-              child: stateEx.lecture.lecture_url == null ||
-                      stateEx.lecture.lecture_url == ''
-                  ? const Center(
-                      child: Text(
-                      'Invalid Url',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ))
-                  : VideoPlayerWidget(
-                      url: stateEx.lecture.lecture_url!,
-                    ),
+            return Positioned(
+              top: 0,
+              child: Container(
+                height: 260,
+                width: MediaQuery.of(context).size.width,
+                child: stateEx.lecture.lecture_url == null ||
+                        stateEx.lecture.lecture_url == ''
+                    ? const Center(
+                        child: Text(
+                        'Invalid Url',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ))
+                    : VideoPlayerWidget(
+                        url: stateEx.lecture.lecture_url!,
+                      ),
+              ),
             );
           }),
-          Expanded(
+          Positioned(
+            bottom: 0,
             child: Container(
+              height: 650,
               width: MediaQuery.of(context).size.width,
-              color: Colors.white,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25))),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),

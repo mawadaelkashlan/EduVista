@@ -2,7 +2,6 @@ import 'package:edu_vista/features/auth/pages/login.dart';
 import 'package:edu_vista/services/pref_service.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
-import 'package:edu_vista/widgets/custom_elevated_button.dart';
 import 'package:edu_vista/features/welcome/widgets/elevated_button_rounded.dart';
 import 'package:edu_vista/features/welcome/widgets/onboard_indicator.dart';
 import 'package:edu_vista/features/welcome/widgets/onboard_item_widget.dart';
@@ -54,25 +53,16 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  currentIndex == 3
-                      ? TextButton(
-                          onPressed: () {
-                            _skipFunction(2);
-                          },
-                          child: const Text(
-                            'Back',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w400),
-                          ))
-                      : TextButton(
-                          onPressed: () {
-                            _skipFunction(3);
-                          },
-                          child: const Text(
-                            'Skip',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w400),
-                          )),
+                  TextButton(
+                      onPressed: () {
+                        PreferencesService.isOnBoardingSeen = true;
+                        Navigator.pushReplacementNamed(context, LoginPage.id);
+                      },
+                      child: const Text(
+                        'Skip',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w400),
+                      )),
                 ],
               ),
             ),
@@ -158,40 +148,41 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 
-  Widget get getButtons => currentIndex == 3
-      ? CustomElevatedButton(onPressed: () => onLogin(), text: 'Login')
-      : Padding(
-          padding: const EdgeInsets.all(20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              currentIndex == 0 || currentIndex == 3
-                  ? const Text('')
-                  : ElevatedButtonRounded(
-                      onPressed: () {
-                        previousFunction();
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        size: 30,
-                      ),
-                      backgroundColor: ColorUtility.grayLight,
+  Widget get getButtons => Padding(
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            currentIndex == 0
+                ? const Text('')
+                : ElevatedButtonRounded(
+                    onPressed: () {
+                      previousFunction();
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      size: 30,
                     ),
-              currentIndex == 3
-                  ? const SizedBox.shrink()
-                  : ElevatedButtonRounded(
-                      onPressed: () {
-                        nextFunction();
-                      },
-                      icon: const Icon(
-                        Icons.arrow_forward,
-                        size: 30,
-                      ),
-                      backgroundColor: ColorUtility.deepYellow,
-                    ),
-            ],
-          ),
-        );
+                    backgroundColor: ColorUtility.grayLight,
+                  ),
+            ElevatedButtonRounded(
+              onPressed: () {
+                if (currentIndex == 3) {
+                  PreferencesService.isOnBoardingSeen = true;
+                  Navigator.pushReplacementNamed(context, LoginPage.id);
+                } else {
+                  nextFunction();
+                }
+              },
+              icon: const Icon(
+                Icons.arrow_forward,
+                size: 30,
+              ),
+              backgroundColor: ColorUtility.deepYellow,
+            ),
+          ],
+        ),
+      );
 
   nextFunction() {
     _pageController.nextPage(duration: _kDuration, curve: _kCurve);
@@ -203,10 +194,5 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   _skipFunction(int index) {
     _pageController.jumpToPage(index);
-  }
-
-  void onLogin() {
-    PreferencesService.isOnBoardingSeen = true;
-    Navigator.pushReplacementNamed(context, LoginPage.id);
   }
 }

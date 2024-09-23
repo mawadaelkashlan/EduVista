@@ -177,7 +177,7 @@ class _AuthTemplateWidgetState extends State<AuthTemplateWidget> {
                             )
                           : const SizedBox(),
                       const SizedBox(
-                        height: 10,
+                        height: 40,
                       ),
                       Row(
                         children: [

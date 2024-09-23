@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edu_vista/features/home/pages/course_detail_page.dart';
 import 'package:edu_vista/utils/color_utilis.dart';
 import 'package:edu_vista/utils/image_utility.dart';
 import 'package:edu_vista/features/home/widgets/expandal_container.dart';
@@ -74,7 +75,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     builder: (context, courseSnapshot) {
                       if (courseSnapshot.connectionState ==
                           ConnectionState.waiting) {
-                        return const CircularProgressIndicator();
+                        return const Center(child: CircularProgressIndicator());
                       } else if (courseSnapshot.hasError) {
                         return Text('Error: ${courseSnapshot.error}');
                       } else {
@@ -135,11 +136,11 @@ class CourseListWidget extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              // Navigator.pushNamed(
-              //   context,
-              //   CourseDetailsPage.id,
-              //   arguments: courses[index],
-              // );
+              Navigator.pushNamed(
+                context,
+                CourseDetailsPage.id,
+                arguments: courses[index],
+              );
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
